@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Phân quyền người dùng</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    select, button { margin: 10px 0; padding: 8px; }
+    .role-permissions { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Phân quyền người dùng</h2>
+  <label for="role">Chọn vai trò:</label>
+  <select id="role">
+    <option value="admin">Quản trị viên</option>
+    <option value="user">Người dùng</option>
+  </select>
+  <button onclick="showPermissions()">Xem quyền</button>
+
+  <div class="role-permissions" id="permissions"></div>
+
+  <script>
+    function showPermissions() {
+      const role = document.getElementById("role").value;
+      const display = document.getElementById("permissions");
+      let permissions = "";
+
+      if (role === "admin") {
+        permissions = `
+          <ul>
+            <li>Thêm, sửa, xóa người dùng</li>
+            <li>Quản lý sản phẩm</li>
+            <li>Xem báo cáo</li>
+          </ul>`;
+      } else {
+        permissions = `
+          <ul>
+            <li>Xem sản phẩm</li>
+            <li>Đặt hàng</li>
+            <li>Chỉnh sửa thông tin cá nhân</li>
+          </ul>`;
+      }
+
+      display.innerHTML = `<h3>Quyền của ${role === "admin" ? "Quản trị viên" : "Người dùng"}:</h3>${permissions}`;
+    }
+  </script>
+</body>
+</html>
