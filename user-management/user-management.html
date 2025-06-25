@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quản lý người dùng</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { margin: 5px; }
+    table { margin-top: 20px; border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+  </style>
+</head>
+<body>
+  <h2>Quản lý người dùng</h2>
+  <input type="text" id="username" placeholder="Tên người dùng">
+  <button onclick="addUser()">Thêm</button>
+  <button onclick="searchUser()">Tìm</button>
+
+  <table id="userTable">
+    <thead>
+      <tr><th>#</th><th>Tên</th><th>Hành động</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    let users = [];
+    function renderUsers(data = users) {
+      const tbody = document.querySelector("#userTable tbody");
+      tbody.innerHTML = "";
+      data.forEach((name, i) => {
+        tbody.innerHTML += `<tr>
+          <td>${i + 1}</td>
+          <td>${name}</td>
+          <td>
+            <button onclick="editUser(${i})">Sửa</button>
+            <button onclick="deleteUser(${i})">Xóa</button>
+          </td>
+        </tr>`;
+      });
+    }
+
+    function addUser() {
+      const name = document.getElementById("username").value.trim();
+      if (name) {
+        users.push(name);
+        renderUsers();
+        document.getElementById("username").value = "";
+      }
+    }
+
+    function deleteUser(index) {
+      if (confirm("Xóa người dùng này?")) {
+        users.splice(index, 1);
+        renderUsers();
+      }
+    }
+
+    function editUser(index) {
+      const newName = prompt("Sửa tên người dùng:", users[index]);
+      if (newName) {
+        users[index] = newName.trim();
+        renderUsers();
+      }
+    }
+
+    function searchUser() {
+      const query = document.getElementById("username").value.trim().toLowerCase();
+      const results = users.filter(name => name.toLowerCase().includes(query));
+      renderUsers(results);
+    }
+  </script>
+</body>
+</html>
