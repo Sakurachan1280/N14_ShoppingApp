@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chọn Phương Thức Thanh Toán</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .payment-methods {
+      max-width: 500px;
+      margin: auto;
+    }
+    .payment-option {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    .payment-option:hover {
+      border-color: #ff6600;
+      background-color: #fff8f0;
+    }
+    .payment-option input {
+      margin-right: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Chọn phương thức thanh toán</h2>
+  <form action="/submit-payment" method="post">
+    <div class="payment-methods">
+
+      <label class="payment-option">
+        <input type="radio" name="payment" value="credit_card" required>
+        Thanh toán bằng Thẻ tín dụng / Ghi nợ
+      </label>
+
+      <label class="payment-option">
+        <input type="radio" name="payment" value="bank_transfer">
+        Chuyển khoản ngân hàng
+      </label>
+
+      <label class="payment-option">
+        <input type="radio" name="payment" value="momo">
+        Ví điện tử MoMo
+      </label>
+
+      <label class="payment-option">
+        <input type="radio" name="payment" value="zalopay">
+        Ví điện tử ZaloPay
+      </label>
+
+    </div>
+    <button type="submit" style="padding: 10px 20px; background-color: #ff6600; color: white; border: none; border-radius: 5px;">
+      Tiếp tục
+    </button>
+  </form>
+</body>
+</html>
