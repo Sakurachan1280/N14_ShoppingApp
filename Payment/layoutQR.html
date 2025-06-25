@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thanh toán VietQR</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .qr-container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 350px;
+    }
+    .qr-container img.logo {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+    .qr-container h2 {
+      margin-top: 10px;
+      color: #333;
+    }
+    .qr-container .info {
+      margin: 15px 0;
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+    }
+    .qr-container img.qr {
+      width: 200px;
+      height: 200px;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="qr-container">
+    <img src="https://vietqr.net/static/media/logo.337e8f58.png" alt="VietQR" class="logo">
+    <h2>Quét mã để thanh toán</h2>
+    <div class="info">
+      <strong>Ngân hàng:</strong> MB Bank<br>
+      <strong>Số tài khoản:</strong> 123456789<br>
+      <strong>Chủ tài khoản:</strong> Nguyễn Văn A<br>
+      <strong>Nội dung:</strong> KAN-14 THANH TOAN
+    </div>
+    <img src="https://img.vietqr.io/image/MB-123456789-compact.png?amount=50000&addInfo=KAN-14+THANH+TOAN&accountName=Nguyen+Van+A" alt="QR Code" class="qr">
+  </div>
+</body>
+</html>
